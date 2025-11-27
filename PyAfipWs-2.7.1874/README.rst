@@ -1,0 +1,234 @@
+pyafipws
+========
+
+PyAfipWs contains Python modules to operate with web services regarding
+AFIP (Argentina's "IRS") and other government agencies, mainly related
+to electronic invoicing, several taxes and traceability.
+
+Copyright 2008 - 2016 (C) Mariano Reingart reingart@gmail.com (creator
+and maintainter). All rights reserved.
+
+License: GPLv3+, with "commercial" exception available to include it and
+distribute with propietary programs
+
+General Information:
+--------------------
+
+-  Main Project Site: https://github.com/reingart/pyafipws (git
+   repository)
+-  Mirror (Historic): https://code.google.com/p/pyafipws/ (mercurial
+   repository)
+-  User Manual:
+   (http://www.sistemasagiles.com.ar/trac/wiki/ManualPyAfipWs (Spanish)
+-  Documentation: https://github.com/reingart/pyafipws/wiki
+   (Spanish/English)
+-  Commercial Support: http://www.sistemasagiles.com.ar/ (Spanish)
+-  Community Site: http://www.pyafipws.com.ar/ (Spanish)
+-  Public Forum: http://groups.google.com/group/pyafipws
+
+More information at `Python Argentina Magazine
+article <http://revista.python.org.ar/2/en/html/pyafip.html>`__
+(English) and `JAIIO 2012
+paper <http://www.41jaiio.org.ar/sites/default/files/15_JSL_2012.pdf>`__
+(Spanish)
+
+Project Structure:
+------------------
+
+-  `Python
+   library <http://www.sistemasagiles.com.ar/trac/wiki/FacturaElectronicaPython>`__
+   (a helper class for each webservice for easy use of their methods and
+   attributes)
+-  `PyAfipWs <http://www.sistemasagiles.com.ar/trac/wiki/PyAfipWs>`__:
+   `OCX-like <http://www.sistemasagiles.com.ar/trac/wiki/OcxFacturaElectronica>`__
+   Windows Component-Object-Model interface compatible with legacy
+   programming languages (VB, VFP, Delphi, PHP, VB.NET, etc.)
+-  `LibPyAfipWs <http://www.sistemasagiles.com.ar/trac/wiki/LibPyAfipWs>`__:
+   `DLL/.so <http://www.sistemasagiles.com.ar/trac/wiki/DllFacturaElectronica>`__
+   compiled shared library (exposing python methods to C/C++/C#)
+-  `Console <http://www.sistemasagiles.com.ar/trac/wiki/HerramientaFacturaElectronica>`__
+   (command line) tools using simplified input & ouput files
+-  `PyRece <http://www.sistemasagiles.com.ar/trac/wiki/PyRece>`__ GUI
+   and
+   `FacturaLibre <http://www.sistemasagiles.com.ar/trac/wiki/FacturaLibre>`__
+   WEB apps as complete reference implementations
+-  Examples for Java, .NET (C#, VB.NET), Visual Basic, Visual Fox Pro,
+   Delphi, C, PHP.
+-  Minor code fragment samples for SAP (ABAP), PowerBuilder, Fujitsu Net
+   Cobol, Clarion, etc.
+-  Modules for
+   `OpenERP/Odoo <https://github.com/reingart/openerp_pyafipws>`__ -
+   `Tryton <https://github.com/tryton-ar/account_invoice_ar>`__
+
+Features implemented:
+---------------------
+
+-  Supported alternate interchange formats: TXT (fixed lenght COBOL),
+   CSV, DBF (Clipper/xBase/Harbour), XML, JSON, etc.
+-  Full automation to request authentication and invoice authorization
+   (CAE, COE, etc.)
+-  Advanced XML manipulation, caching and proxy support.
+-  Customizable PDF generation and visual designer (CSV templates)
+-  Email, barcodes (PIL), installation (NSIS), configuration (.INI),
+   debugging and other misc utilities
+
+Web services supported so far:
+------------------------------
+
+AFIP:
+
+-  `WSAA <http://www.sistemasagiles.com.ar/trac/wiki/ManualPyAfipWs#ServicioWebdeAutenticaciónyAutorizaciónWSAA>`__:
+   authorization & authentication, including digital cryptographic
+   signature
+-  `WSFEv1 <http://www.sistemasagiles.com.ar/trac/wiki/ProyectoWSFEv1>`__:
+   domestic market (electronic invoice)
+   -`English <https://github.com/reingart/pyafipws/wiki/WSFEv1>`__-
+-  `WSMTXCA <http://www.sistemasagiles.com.ar/trac/wiki/FacturaElectronicaMTXCAService>`__:
+   domestic market (electronic invoice) -detailing articles and
+   barcodes-
+-  `WSBFEv1 <http://www.sistemasagiles.com.ar/trac/wiki/BonosFiscales>`__:
+   tax bonus (electronic invoice)
+-  `WSFEXv1 <http://www.sistemasagiles.com.ar/trac/wiki/FacturaElectronicaExportacion>`__:
+   foreign trade (electronic invoice)
+   -`English <https://github.com/reingart/pyafipws/wiki/WSFEX>`__-
+-  `WSCTG <http://www.sistemasagiles.com.ar/trac/wiki/CodigoTrazabilidadGranos>`__:
+   agriculture (grain traceability code)
+-  `WSLPG <http://www.sistemasagiles.com.ar/trac/wiki/LiquidacionPrimariaGranos>`__:
+   agriculture (grain liquidation - invoice)
+-  `wDigDepFiel <http://www.sistemasagiles.com.ar/trac/wiki/ManualPyAfipWs#wDigDepFiel:DepositarioFiel>`__:
+   customs (faithful depositary)
+-  `WSCOC <http://www.sistemasagiles.com.ar/trac/wiki/ConsultaOperacionesCambiarias>`__:
+   currency exchange operations autorization
+-  `WSCDC <http://www.sistemasagiles.com.ar/trac/wiki/FacturaElectronicaMTXCAService>`__:
+   invoice verification
+-  `Taxpayers'
+   Registe <http://www.sistemasagiles.com.ar/trac/wiki/PadronContribuyentesAFIP>`__:
+   database to check sellers and buyers register
+
+ARBA:
+
+-  `COT <http://www.sistemasagiles.com.ar/trac/wiki/RemitoElectronicoCotArba>`__:
+   Provincial Operation Transport Code (aka electronic Shipping note)
+
+ANMAT/SEDRONAR/SENASA (SNT):
+
+-  `TrazaMed <http://www.sistemasagiles.com.ar/trac/wiki/TrazabilidadMedicamentos>`__:
+   National Medical Drug Traceability Program
+-  `TrazaRenpre <http://www.sistemasagiles.com.ar/trac/wiki/TrazabilidadPrecursoresQuimicos>`__:
+   Controlled Chemical Precursors Traceability Program
+-  `TrazaFito <http://www.sistemasagiles.com.ar/trac/wiki/TrazabilidadProductosFitosanitarios>`__:
+   Phytosanitary Products Traceability Program
+
+Installation Instructions:
+--------------------------
+
+Quick-Start
+-----------
+
+On Ubuntu (GNU/Linux), you will need to install httplib2 and openssl
+binding. Then you can download the compressed file, unzip it and use:
+
+::
+
+    sudo apt-get install python-httplib2 python-m2crypto
+    wget https://github.com/reingart/pyafipws/archive/master.zip
+    unzip master.zip
+    cd pyafipws-master
+    sudo pip install -r requirements.txt
+
+**Note:** M2Crypto is optional, the library will use OpenSSL directly
+(using subprocess)
+
+You'll need a digital certificate (.crt) and private key (.key) to
+authenticate (see `certificate
+generation <http://www.sistemasagiles.com.ar/trac/wiki/ManualPyAfipWs#Certificados>`__
+for more information and instructions). Provisionally, you can use
+author's testing certificate/key:
+
+::
+
+    wget https://www.sistemasagiles.com.ar/soft/pyafipws/reingart.zip
+    unzip reingart.zip
+
+You should configure ``rece.ini`` to set up paths and URLs if using
+other values than defaults.
+
+Then, you could execute ``WSAA`` script to authenticate (getting Token
+and Sign) and ``WSFEv1`` to process an electronic invoice:
+
+::
+
+    python wsaa.py
+    python wsfev1.py --prueba
+
+With the last command, you should get the Electronic Autorization Code
+(CAE) for testing purposes (sample invoice data, do not use in
+production!).
+
+Virtual environment (testing):
+------------------------------
+
+The following commands clone the repository, creates a virtualenv and
+install the packages there (including the latest versions of the
+dependencies) to avoid conflicts with other libraries:
+
+::
+
+    sudo apt-get install python-dev swig python-virtualenv mercurial python-pip libssl-dev python-dulwich
+    hg clone git+https://github.com/reingart/pyafipws.git --config extensions.hggit=
+    cd pyafipws
+    virtualenv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+
+**Note:** For convenience, development is done using mercurial; You
+could use `hg-git <http://hg-git.github.io/>`__ or git directly.
+
+Dependency installation (development):
+--------------------------------------
+
+For SOAP webservices
+`PySimpleSOAP <https://github.com/pysimplesoap/pysimplesoap>`__ is
+needed (spin-off of this library, inspired by the PHP SOAP extension):
+
+::
+
+    hg clone git+https://github.com/pysimplesoap/pysimplesoap.git --config extensions.hggit=
+    cd pysimplesoap
+    hg up reingart
+    python setup.py install
+
+Use "stable" branch reingart (see ``requirements.txt`` for more
+information)
+
+For PDF generation, you will need the
+`PyFPDF <https://github.com/reingart/pyfpdf>`__ (PHP's FPDF library,
+python port):
+
+::
+
+    hg clone git+https://github.com/reingart/pyfpdf.git --config extensions.hggit=
+    cd pyfpdf
+    python setup.py install
+
+For the GUI app, you will need `wxPython <http://www.wxpython.org/>`__:
+
+::
+
+    sudo apt-get install wxpython
+
+PythonCard is being replaced by
+`gui2py <https://github.com/reingart/gui2py/>`__:
+
+::
+
+    pip install gui2py
+
+For the WEB app, you will need `web2py <http://www.web2py.com/>`__.
+
+On Windows, you can see available installers released for evaluation
+purposes on `Download
+Releases <https://github.com/reingart/pyafipws/releases>`__
+
+For more information see the source code installation steps in the
+`wiki <https://github.com/reingart/pyafipws/wiki/InstalacionCodigoFuente>`__
