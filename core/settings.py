@@ -23,7 +23,7 @@ SECRET_KEY = 'django-insecure-ap1y#9ju@*^#jo97#i_f6_ym-yhv#z&ba-_kq0+)@6rm2%sjf&
 DEBUG = False # Cambiado a False para producción en Render
 
 # Render configurará el ALLOWED_HOSTS por nosotros.
-ALLOWED_HOSTS = [] 
+ALLOWED_HOSTS = ['*'] 
 
 
 # Application definition
