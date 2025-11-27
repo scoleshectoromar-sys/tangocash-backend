@@ -15,10 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-ap1y#9ju@*^#jo97#i_f6_ym-yhv#z&ba-_kq0+)@6rm2%sjf&'
 
@@ -40,12 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Configuración de WhiteNoise (para servir archivos estáticos en Render)
     'whitenoise.runserver_nostatic', 
+    # AÑADIDO PARA CORS
+    'corsheaders', 
     # Aplicaciones agregadas (Importante):
     'rest_framework', 
     'finanzas', 
 ]
 
 MIDDLEWARE = [
+    # AÑADIDO PARA CORS: DEBE SER LO PRIMERO
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     # WHITENOISE: Debe estar justo después de SecurityMiddleware
     'whitenoise.middleware.WhiteNoiseMiddleware', 
@@ -133,4 +134,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CONFIGURACIÓN DE CORS
+CORS_ALLOW_ALL_ORIGINS = True # Permite conexiones desde cualquier dominio (incluyendo Vercel)
 # Fin de configuraciones
